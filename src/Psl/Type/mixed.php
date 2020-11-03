@@ -6,6 +6,7 @@ namespace Psl\Type;
 
 /**
  * @psalm-return Type<mixed>
+ * @psalm-pure
  */
 function mixed(): Type
 {

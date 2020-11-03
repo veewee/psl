@@ -17,6 +17,7 @@ use Psl\Type\Exception\CoercionException;
  * @extends Type\Type<array<Tk, Tv>>
  *
  * @internal
+ * @psalm-immutable
  */
 final class ArrayType extends Type\Type
 {

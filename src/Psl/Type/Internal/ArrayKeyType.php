@@ -8,6 +8,7 @@ namespace Psl\Type\Internal;
  * @extends UnionType<string, int>
  *
  * @internal
+ * @psalm-immutable
  */
 final class ArrayKeyType extends UnionType
 {

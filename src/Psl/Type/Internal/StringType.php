@@ -12,6 +12,7 @@ use Psl\Type\Exception\CoercionException;
  * @extends Type\Type<string>
  *
  * @internal
+ * @psalm-immutable
  */
 final class StringType extends Type\Type
 {

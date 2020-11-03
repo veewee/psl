@@ -6,6 +6,7 @@ namespace Psl\Type;
 
 /**
  * @psalm-return Type<null>
+ * @psalm-pure
  */
 function null(): Type
 {

@@ -12,6 +12,7 @@ namespace Psl\Type;
  * @psalm-param Type<Tv> $value_type
  *
  * @psalm-return Type<array<Tk, Tv>>
+ * @psalm-pure
  */
 function arr(Type $key_type, Type $value_type): Type
 {

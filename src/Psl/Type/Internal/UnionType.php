@@ -16,6 +16,7 @@ use Psl\Type\Type;
  * @extends Type<Tl|Tr>
  *
  * @internal
+ * @psalm-immutable
  */
 class UnionType extends Type
 {

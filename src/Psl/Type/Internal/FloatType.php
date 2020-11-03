@@ -14,6 +14,7 @@ use function ctype_digit;
  * @extends Type\Type<float>
  *
  * @internal
+ * @psalm-immutable
  */
 final class FloatType extends Type\Type
 {

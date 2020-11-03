@@ -6,6 +6,7 @@ namespace Psl\Type;
 
 /**
  * @psalm-return Type<int|float>
+ * @psalm-pure
  */
 function num(): Type
 {

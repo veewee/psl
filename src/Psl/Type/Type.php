@@ -10,6 +10,7 @@ use Psl\Type\Internal\TypeTraceTrait;
 
 /**
  * @template T
+ * @psalm-immutable
  */
 abstract class Type
 {

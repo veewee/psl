@@ -17,6 +17,7 @@ use Psl\Type\Type;
  * @extends Type<Tl&Tr>
  *
  * @internal
+ * @psalm-immutable
  */
 final class IntersectionType extends Type
 {

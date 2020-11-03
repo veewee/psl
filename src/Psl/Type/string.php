@@ -6,6 +6,7 @@ namespace Psl\Type;
 
 /**
  * @psalm-return Type<string>
+ * @psalm-pure
  */
 function string(): Type
 {

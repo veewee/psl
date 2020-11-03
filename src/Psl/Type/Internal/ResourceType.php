@@ -13,6 +13,7 @@ use Psl\Type\Exception\CoercionException;
  * @extends Type\Type<resource>
  *
  * @internal
+ * @psalm-immutable
  */
 final class ResourceType extends Type\Type
 {

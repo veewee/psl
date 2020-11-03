@@ -6,6 +6,7 @@ namespace Psl\Type;
 
 /**
  * @psalm-return Type<bool>
+ * @psalm-pure
  */
 function bool(): Type
 {

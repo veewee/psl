@@ -8,6 +8,7 @@ namespace Psl\Type\Internal;
  * @extends UnionType<int, float>
  *
  * @internal
+ * @psalm-immutable
  */
 final class NumType extends UnionType
 {

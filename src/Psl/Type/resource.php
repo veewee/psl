@@ -8,6 +8,7 @@ namespace Psl\Type;
  * @param ?string $kind The resource kind, if null, the resource type won't be validated.
  *
  * @psalm-return Type<resource>
+ * @psalm-pure
  */
 function resource(?string $kind = null): Type
 {

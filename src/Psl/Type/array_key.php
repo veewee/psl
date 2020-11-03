@@ -6,6 +6,7 @@ namespace Psl\Type;
 
 /**
  * @psalm-return Type<array-key>
+ * @psalm-pure
  */
 function array_key(): Type
 {

@@ -10,6 +10,7 @@ namespace Psl\Type;
  * @psalm-param Type<T> $spec
  *
  * @psalm-return Type<T|null>
+ * @psalm-pure
  */
 function nullable(Type $spec): Type
 {

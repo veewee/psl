@@ -13,6 +13,7 @@ use Psl\Type\Exception\CoercionException;
  * @extends Type\Type<int>
  *
  * @internal
+ * @psalm-immutable
  */
 final class IntType extends Type\Type
 {

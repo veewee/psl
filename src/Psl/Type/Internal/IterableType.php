@@ -17,6 +17,7 @@ use Psl\Type\Exception\CoercionException;
  * @extends Type\Type<iterable<Tk, Tv>>
  *
  * @internal
+ * @psalm-immutable
  */
 final class IterableType extends Type\Type
 {

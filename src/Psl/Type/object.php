@@ -10,6 +10,7 @@ namespace Psl\Type;
  * @psalm-param class-string<T> $classname
  *
  * @psalm-return Type<T>
+ * @psalm-pure
  */
 function object(string $classname): Type
 {

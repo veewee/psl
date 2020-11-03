@@ -6,6 +6,7 @@ namespace Psl\Type;
 
 /**
  * @psalm-return Type<string|bool|int|float>
+ * @psalm-pure
  */
 function scalar(): Type
 {

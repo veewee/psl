@@ -12,6 +12,7 @@ use Psl\Type\Exception\CoercionException;
  * @extends Type\Type<null>
  *
  * @internal
+ * @psalm-immutable
  */
 final class NullType extends Type\Type
 {

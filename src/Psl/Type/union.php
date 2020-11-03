@@ -12,6 +12,7 @@ namespace Psl\Type;
  * @psalm-param Type<Tr> $right_type_spec
  *
  * @psalm-return Type<Tl|Tr>
+ * @psalm-pure
  */
 function union(
     Type $left_type,

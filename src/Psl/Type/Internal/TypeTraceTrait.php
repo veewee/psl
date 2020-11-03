@@ -6,6 +6,9 @@ namespace Psl\Type\Internal;
 
 use Psl\Type\Exception\TypeTrace;
 
+/**
+ * @psalm-immutable
+ */
 trait TypeTraceTrait
 {
     private ?TypeTrace $trace = null;

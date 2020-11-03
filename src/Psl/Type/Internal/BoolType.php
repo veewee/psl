@@ -12,6 +12,7 @@ use Psl\Type\Exception\CoercionException;
  * @extends Type\Type<bool>
  *
  * @internal
+ * @psalm-immutable
  */
 final class BoolType extends Type\Type
 {

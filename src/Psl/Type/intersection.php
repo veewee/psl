@@ -12,6 +12,7 @@ namespace Psl\Type;
  * @psalm-param Type<Tr> $right_type
  *
  * @psalm-return Type<Tl&Tr>
+ * @psalm-pure
  */
 function intersection(
     Type $left_type,

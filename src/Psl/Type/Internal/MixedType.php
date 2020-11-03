@@ -10,6 +10,7 @@ use Psl\Type\Type;
  * @extends Type<mixed>
  *
  * @internal
+ * @psalm-immutable
  */
 final class MixedType extends Type
 {

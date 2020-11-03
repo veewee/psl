@@ -8,6 +8,7 @@ namespace Psl\Type\Internal;
  * @extends UnionType<string|bool, int|float>
  *
  * @internal
+ * @psalm-immutable
  */
 final class ScalarType extends UnionType
 {

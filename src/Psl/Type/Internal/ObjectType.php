@@ -14,6 +14,7 @@ use Psl\Type\Type;
  * @extends Type<T>
  *
  * @internal
+ * @psalm-immutable
  */
 final class ObjectType extends Type
 {

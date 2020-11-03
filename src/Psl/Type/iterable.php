@@ -12,6 +12,7 @@ namespace Psl\Type;
  * @psalm-param Type<Tv> $value_type_spec
  *
  * @psalm-return Type<iterable<Tk, Tv>>
+ * @psalm-pure
  */
 function iterable(Type $key_type_spec, Type $value_type_spec): Type
 {
