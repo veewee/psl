@@ -1,0 +1,2276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
+        });
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Psl.html">\Psl</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">884</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1752064529"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1752064529" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-677991630"></a>
+                                <a href="../namespaces/Psl.html" style="margin-left: 30px; padding-left: 0">Psl</a>
+            </div>
+            <div id="namespace-677991630" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                <a href="../namespaces/Psl.Arr.html" style="margin-left: 30px; padding-left: 0">Arr</a>
+            </div>
+            <div id="namespace-1526611083" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1040837140"></a>
+                                <a href="../namespaces/Psl.Collection.html" style="margin-left: 30px; padding-left: 0">Collection</a>
+            </div>
+            <div id="namespace-1040837140" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Psl.Collection.AccessibleCollectionInterface.html">AccessibleCollectionInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Psl.Collection.CollectionInterface.html">CollectionInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Psl.Collection.IndexAccessInterface.html">IndexAccessInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Psl.Collection.MapInterface.html">MapInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Psl.Collection.MutableAccessibleCollectionInterface.html">MutableAccessibleCollectionInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Psl.Collection.MutableCollectionInterface.html">MutableCollectionInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Psl.Collection.MutableIndexAccessInterface.html">MutableIndexAccessInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Psl.Collection.MutableMapInterface.html">MutableMapInterface</a></li>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-376437999"></a>
+                                <a href="../namespaces/Psl.DataStructure.html" style="margin-left: 30px; padding-left: 0">DataStructure</a>
+            </div>
+            <div id="namespace-376437999" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Psl.DataStructure.PriorityQueueInterface.html">PriorityQueueInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Psl.DataStructure.QueueInterface.html">QueueInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Psl.DataStructure.StackInterface.html">StackInterface</a></li>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                <a href="../namespaces/Psl.Env.html" style="margin-left: 30px; padding-left: 0">Env</a>
+            </div>
+            <div id="namespace-167951396" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-467681870"></a>
+                                <a href="../namespaces/Psl.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
+            </div>
+            <div id="namespace-467681870" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Psl.Exception.InvalidArgumentException.html">InvalidArgumentException</a></li>
+                                                    <li class="class"><a href="../classes/Psl.Exception.InvariantViolationException.html">InvariantViolationException</a></li>
+                                                    <li class="class"><a href="../classes/Psl.Exception.RuntimeException.html">RuntimeException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                <a href="../namespaces/Psl.Fun.html" style="margin-left: 30px; padding-left: 0">Fun</a>
+            </div>
+            <div id="namespace-35761614" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1734680517"></a>
+                                <a href="../namespaces/Psl.Hash.html" style="margin-left: 30px; padding-left: 0">Hash</a>
+            </div>
+            <div id="namespace-1734680517" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                <a href="../namespaces/Psl.Hash.Hmac.html" style="margin-left: 30px; padding-left: 0">Hmac</a>
+            </div>
+            <div id="namespace-1768677945" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                <a href="../namespaces/Psl.Internal.html" style="margin-left: 30px; padding-left: 0">Internal</a>
+            </div>
+            <div id="namespace-424200822" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                <a href="../namespaces/Psl.Iter.html" style="margin-left: 30px; padding-left: 0">Iter</a>
+            </div>
+            <div id="namespace-165119703" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-782978848"></a>
+                                <a href="../namespaces/Psl.Json.html" style="margin-left: 30px; padding-left: 0">Json</a>
+            </div>
+            <div id="namespace-782978848" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2054192732"></a>
+                                <a href="../namespaces/Psl.Json.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
+            </div>
+            <div id="namespace-2054192732" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Psl.Json.Exception.ExceptionInterface.html">ExceptionInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Psl.Json.Exception.DecodeException.html">DecodeException</a></li>
+                                                    <li class="class"><a href="../classes/Psl.Json.Exception.EncodeException.html">EncodeException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1395731064"></a>
+                                <a href="../namespaces/Psl.Math.html" style="margin-left: 30px; padding-left: 0">Math</a>
+            </div>
+            <div id="namespace-1395731064" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2090044225"></a>
+                                <a href="../namespaces/Psl.Math.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
+            </div>
+            <div id="namespace-2090044225" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Psl.Math.Exception.ExceptionInterface.html">ExceptionInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Psl.Math.Exception.ArithmeticException.html">ArithmeticException</a></li>
+                                                    <li class="class"><a href="../classes/Psl.Math.Exception.DivisionByZeroException.html">DivisionByZeroException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-238008019"></a>
+                                <a href="../namespaces/Psl.Observer.html" style="margin-left: 30px; padding-left: 0">Observer</a>
+            </div>
+            <div id="namespace-238008019" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Psl.Observer.ObserverInterface.html">ObserverInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Psl.Observer.SubjectInterface.html">SubjectInterface</a></li>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                <a href="../namespaces/Psl.Password.html" style="margin-left: 30px; padding-left: 0">Password</a>
+            </div>
+            <div id="namespace-934346299" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                <a href="../namespaces/Psl.PseudoRandom.html" style="margin-left: 30px; padding-left: 0">PseudoRandom</a>
+            </div>
+            <div id="namespace-582733851" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1955837091"></a>
+                                <a href="../namespaces/Psl.Result.html" style="margin-left: 30px; padding-left: 0">Result</a>
+            </div>
+            <div id="namespace-1955837091" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Psl.Result.ResultInterface.html">ResultInterface</a></li>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-513468363"></a>
+                                <a href="../namespaces/Psl.SecureRandom.html" style="margin-left: 30px; padding-left: 0">SecureRandom</a>
+            </div>
+            <div id="namespace-513468363" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1060644765"></a>
+                                <a href="../namespaces/Psl.SecureRandom.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
+            </div>
+            <div id="namespace-1060644765" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Psl.SecureRandom.Exception.ExceptionInterface.html">ExceptionInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Psl.SecureRandom.Exception.InsufficientEntropyException.html">InsufficientEntropyException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-347791922"></a>
+                                <a href="../namespaces/Psl.Str.html" style="margin-left: 30px; padding-left: 0">Str</a>
+            </div>
+            <div id="namespace-347791922" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                <a href="../namespaces/Psl.Str.Byte.html" style="margin-left: 30px; padding-left: 0">Byte</a>
+            </div>
+            <div id="namespace-287650621" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                <a href="../namespaces/Psl.Str.Grapheme.html" style="margin-left: 30px; padding-left: 0">Grapheme</a>
+            </div>
+            <div id="namespace-1164765503" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1147623044"></a>
+                                <a href="../namespaces/Psl.Type.html" style="margin-left: 30px; padding-left: 0">Type</a>
+            </div>
+            <div id="namespace-1147623044" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1008246133"></a>
+                                <a href="../namespaces/Psl.Type.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
+            </div>
+            <div id="namespace-1008246133" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Psl.Type.Exception.ExceptionInterface.html">ExceptionInterface</a></li>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1649932102"></a>
+                                <a href="../namespaces/Psl.Type.Internal.html" style="margin-left: 30px; padding-left: 0">Internal</a>
+            </div>
+            <div id="namespace-1649932102" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Psl.Type.Internal.ArrayKeyType.html">ArrayKeyType</a></li>
+                                                    <li class="class"><a href="../classes/Psl.Type.Internal.BoolType.html">BoolType</a></li>
+                                                    <li class="class"><a href="../classes/Psl.Type.Internal.IntType.html">IntType</a></li>
+                                                    <li class="class"><a href="../classes/Psl.Type.Internal.MixedType.html">MixedType</a></li>
+                                                    <li class="class"><a href="../classes/Psl.Type.Internal.NullType.html">NullType</a></li>
+                                                    <li class="class"><a href="../classes/Psl.Type.Internal.NumType.html">NumType</a></li>
+                                                    <li class="class"><a href="../classes/Psl.Type.Internal.ScalarType.html">ScalarType</a></li>
+                                                    <li class="class"><a href="../classes/Psl.Type.Internal.StringType.html">StringType</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Psl.Type.Type.html">Type</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/Psl.Collection.html">\Psl\Collection</a>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\Psl\Collection</small>MutableMapInterface</h1>
+                    <p><em>The base interface implemented for a collection type that you are able to access its values.</em></p>
+                    <p>Every concrete class indirectly implements this interface.</p>
+
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span6">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span6">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span6">
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_values">values()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_keys">keys()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_filter">filter()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_filterWithKey">filterWithKey()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_map">map()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_mapWithKey">mapWithKey()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_first">first()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_firstKey">firstKey()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_last">last()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_lastKey">lastKey()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_linearSearch">linearSearch()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_zip">zip()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_take">take()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_takeWhile">takeWhile()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_drop">drop()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_dropWhile">dropWhile()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_slice">slice()</a><br />
+                                                                    <a href="../classes/Psl.Collection.CollectionInterface.html#method_isEmpty">isEmpty()</a><br />
+                                                                    <a href="../classes/Psl.Collection.CollectionInterface.html#method_count">count()</a><br />
+                                                                    <a href="../classes/Psl.Collection.CollectionInterface.html#method_toArray">toArray()</a><br />
+                                                                    <a href="../classes/Psl.Collection.CollectionInterface.html#method_jsonSerialize">jsonSerialize()</a><br />
+                                                                    <a href="../classes/Psl.Collection.IndexAccessInterface.html#method_at">at()</a><br />
+                                                                    <a href="../classes/Psl.Collection.IndexAccessInterface.html#method_contains">contains()</a><br />
+                                                                    <a href="../classes/Psl.Collection.IndexAccessInterface.html#method_get">get()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_set">set()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_setAll">setAll()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_remove">remove()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_clear">clear()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_add">add()</a><br />
+                                                                    <a href="../classes/Psl.Collection.MutableMapInterface.html#method_addAll">addAll()</a><br />
+                                                            </section>
+                            <section class="span6">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span6">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span6">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span6">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span6">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        <dl>
+                        <dt>File</dt>
+                            <dd>
+                                <a href="../files/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">Psl/Collection/MutableMapInterface.php</div></a>
+                            </dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                                                                                                    <dt>Parents</dt>
+                                                        <dd><a href="../classes/Psl.Collection.MapInterface.html"><div class="namespace-wrapper">\Psl\Collection\MapInterface</div></a></dd>
+                                                                                <dd><a href="../classes/Psl.Collection.MutableAccessibleCollectionInterface.html"><div class="namespace-wrapper">\Psl\Collection\MutableAccessibleCollectionInterface</div></a></dd>
+                        
+                                            </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>template</th>
+                            <td>
+                                                                                                        <p>Tk of array-key</p>
+                                                                                                        <p>Tv</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>extends</th>
+                            <td>
+                                                                                                        <p>MapInterface&lt;Tk, Tv&gt;</p>
+                                                                                                        <p>MutableAccessibleCollectionInterface&lt;Tk, Tv&gt;</p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+            
+                        <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Methods</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_values" name="method_values" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">values()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">values() </pre>
+                <p><em>Returns a `MutableVectorInterface` containing the values of the current
+`MutableMapInterface`.</em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableVectorInterface<Tv></p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_keys" name="method_keys" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">keys()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">keys() </pre>
+                <p><em>Returns a `MutableVectorInterface` containing the keys of the current `MutableMapInterface`.</em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableVectorInterface<Tk></p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_filter" name="method_filter" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">filter()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">filter(callable  <span class="argument">$fn</span>) </pre>
+                <p><em>Returns a `MutableMapInterface` containing the values of the current `MutableMapInterface`
+that meet a supplied condition.</em></p>
+                <p>Only values that meet a certain criteria are affected by a call to
+<code>filter()</code>, while all values are affected by a call to <code>map()</code>.</p>
+<p>The keys associated with the current <code>MutableMapInterface</code> remain unchanged in the
+returned <code>MutableMapInterface</code>.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>callable</td>
+                                <td>$fn </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>(callable(Tv): bool) $fn - The callback containing the condition to apply to the current
+<code>MutableMapInterface</code> values.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tv&gt; - a MutableMapInterface containing the values after a user-specified
+condition is applied.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_filterWithKey" name="method_filterWithKey" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">filterWithKey()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">filterWithKey(callable  <span class="argument">$fn</span>) </pre>
+                <p><em>Returns a `MutableMapInterface` containing the values of the current `MutableMapInterface`
+that meet a supplied condition applied to its keys and values.</em></p>
+                <p>Only keys and values that meet a certain criteria are affected by a call
+to <code>filterWithKey()</code>, while all values are affected by a call to
+<code>mapWithKey()</code>.</p>
+<p>The keys associated with the current <code>MutableMapInterface</code> remain unchanged in the
+returned <code>MutableMapInterface</code>; the keys will be used in the filtering process only.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>callable</td>
+                                <td>$fn </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>(callable(Tk, Tv): bool) $fn - The callback containing the condition to apply to
+the current <code>MutableMapInterface</code> keys and values.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tv&gt; - a <code>MutableMapInterface</code> containing the values after a user-specified
+condition is applied to the keys and values of the current <code>MutableMapInterface</code>.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_map" name="method_map" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">map()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">map(callable  <span class="argument">$fn</span>) </pre>
+                <p><em>Returns a `MutableMapInterface` after an operation has been applied to each value
+in the current `MutableMapInterface`.</em></p>
+                <p>Every value in the current Map is affected by a call to <code>map()</code>, unlike
+<code>filter()</code> where only values that meet a certain criteria are affected.</p>
+<p>The keys will remain unchanged from the current <code>MutableMapInterface</code> to the
+returned <code>MutableMapInterface</code>.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>callable</td>
+                                <td>$fn </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-template
+                        </th>
+                        <td>
+                                                                                            <p>Tu</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>(callable(Tv): Tu) $fn - The callback containing the operation to apply to the current
+<code>MutableMapInterface</code> values.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tu&gt; - a <code>MutableMapInterface</code> containing key/value pairs after
+a user-specified operation is applied.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mapWithKey" name="method_mapWithKey" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mapWithKey()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mapWithKey(callable  <span class="argument">$fn</span>) </pre>
+                <p><em>Returns a `MutableMapInterface` after an operation has been applied to each key and
+value in the current `MutableMapInterface`.</em></p>
+                <p>Every key and value in the current <code>MutableMapInterface</code> is affected by a call to
+<code>mapWithKey()</code>, unlike <code>filterWithKey()</code> where only values that meet a
+certain criteria are affected.</p>
+<p>The keys will remain unchanged from this <code>MutableMapInterface</code> to the returned
+<code>MutableMapInterface</code>. The keys are only used to help in the mapping operation.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>callable</td>
+                                <td>$fn </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-template
+                        </th>
+                        <td>
+                                                                                            <p>Tu</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>(callable(Tk, Tv): Tu) $fn - The callback containing the operation to apply to the current
+<code>MutableMapInterface</code> keys and values.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tu&gt; - a <code>MutableMapInterface</code> containing the values after a user-specified
+operation on the current <code>MutableMapInterface</code>'s keys and values is applied.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_first" name="method_first" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">first()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">first() </pre>
+                <p><em>Returns the first value in the current `MutableMapInterface`.</em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>Tv|null - The first value in the current <code>MutableMapInterface</code>, or <code>null</code> if the
+current <code>MutableMapInterface</code> is empty.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_firstKey" name="method_firstKey" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">firstKey()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">firstKey() </pre>
+                <p><em>Returns the first key in the current `MutableMapInterface`.</em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>Tk|null - The first key in the current <code>MutableMapInterface</code>, or <code>null</code> if the
+current <code>MutableMapInterface</code> is empty</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_last" name="method_last" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">last()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">last() </pre>
+                <p><em>Returns the last value in the current `MutableMapInterface`.</em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>Tv|null - The last value in the current <code>MutableMapInterface</code>, or <code>null</code> if the
+current <code>MutableMapInterface</code> is empty.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_lastKey" name="method_lastKey" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">lastKey()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">lastKey() </pre>
+                <p><em>Returns the last key in the current `MutableMapInterface`.</em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>Tk|null - The last key in the current <code>MutableMapInterface</code>, or <code>null</code> if the
+current <code>MutableMapInterface</code> is empty.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_linearSearch" name="method_linearSearch" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">linearSearch()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">linearSearch(  <span class="argument">$search_value</span>) </pre>
+                <p><em>Returns the index of the first element that matches the search value.</em></p>
+                <p>If no element matches the search value, this function returns null.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$search_value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>Tv $search_value - The value that will be search for in the current
+<code>MutableMapInterface</code>.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>Tk|null - The key (index) where that value is found; null if it is not found.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_zip" name="method_zip" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">zip()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">zip(\Psl\Collection\iterable  <span class="argument">$iterable</span>) </pre>
+                <p><em>Returns a `MutableMapInterface` where each element is a `array{0: Tv, 1: Tu}` that combines the
+element of the current `MutableMapInterface` and the provided `iterable`.</em></p>
+                <p>If the number of elements of the <code>MutableMapInterface</code> are not equal to the
+number of elements in the <code>iterable</code>, then only the combined elements
+up to and including the final element of the one with the least number of
+elements is included.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Psl\Collection\iterable</td>
+                                <td>$iterable </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-template
+                        </th>
+                        <td>
+                                                                                            <p>Tu</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>iterable<Tu> $iterable - The <code>iterable</code> to use to combine with the
+elements of this <code>MutableMapInterface</code>.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, array{0: Tv, 1: Tu}&gt; - The <code>MutableMapInterface</code> that combines
+the values of the current <code>MutableMapInterface</code> with the provided <code>iterable</code>.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_take" name="method_take" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">take()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">take(\Psl\Collection\int  <span class="argument">$n</span>) </pre>
+                <p><em>Returns a `MutableMapInterface` containing the first `n` values of the current
+`MutableMapInterface`.</em></p>
+                <p>The returned <code>MutableMapInterface</code> will always be a proper subset of the current
+<code>MutableMapInterface</code>.</p>
+<p><code>$n</code> is 1-based. So the first element is 1, the second 2, etc.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Psl\Collection\int</td>
+                                <td>$n </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>$n - The last element that will be included in the returned
+<code>MutableMapInterface</code>.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tv&gt; - A <code>MutableMapInterface</code> that is a proper subset of the current
+<code>MutableMapInterface</code> up to <code>n</code> elements.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_takeWhile" name="method_takeWhile" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">takeWhile()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">takeWhile(callable  <span class="argument">$fn</span>) </pre>
+                <p><em>Returns a `MutableMapInterface` containing the values of the current `MutableMapInterface`
+up to but not including the first value that produces `false` when passed
+to the specified callback.</em></p>
+                <p>The returned <code>MutableMapInterface</code> will always be a proper subset of the current
+<code>MutableMapInterface</code>.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>callable</td>
+                                <td>$fn </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>(callable(Tv): bool) $fn - The callback that is used to determine the stopping
+condition.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tv&gt; - A <code>MutableMapInterface</code> that is a proper subset of the current
+<code>MutableMapInterface</code> up until the callback returns <code>false</code>.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_drop" name="method_drop" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">drop()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">drop(\Psl\Collection\int  <span class="argument">$n</span>) </pre>
+                <p><em>Returns a `MutableMapInterface` containing the values after the `n`-th element of
+the current `MutableMapInterface`.</em></p>
+                <p>The returned <code>MutableMapInterface</code> will always be a proper subset of the current
+<code>MutableMapInterface</code>.</p>
+<p><code>$n</code> is 1-based. So the first element is 1, the second 2, etc.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Psl\Collection\int</td>
+                                <td>$n </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>int $n - The last element to be skipped; the $n+1 element will be the
+first one in the returned <code>MutableMapInterface</code>.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tv&gt; - A <code>MutableMapInterface</code> that is a proper subset of the current
+<code>MutableMapInterface</code> containing values after the specified <code>n</code>-th element.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_dropWhile" name="method_dropWhile" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">dropWhile()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">dropWhile(callable  <span class="argument">$fn</span>) </pre>
+                <p><em>Returns a `MutableMapInterface` containing the values of the current `MutableMapInterface`
+starting after and including the first value that produces `true` when
+passed to the specified callback.</em></p>
+                <p>The returned <code>MutableMapInterface</code> will always be a proper subset of the current
+<code>MutableMapInterface</code>.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>callable</td>
+                                <td>$fn </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>(callable(Tv): bool) $fn - The callback used to determine the starting element for the
+returned <code>MutableMapInterface</code>.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tv&gt; - A <code>MutableMapInterface</code> that is a proper subset of the current
+<code>MutableMapInterface</code> starting after the callback returns <code>true</code>.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_slice" name="method_slice" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">slice()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">slice(\Psl\Collection\int  <span class="argument">$start</span>, \Psl\Collection\int  <span class="argument">$len</span>) </pre>
+                <p><em>Returns a subset of the current `MutableMapInterface` starting from a given key up
+to, but not including, the element at the provided length from the starting
+key.</em></p>
+                <p><code>$start</code> is 0-based. $len is 1-based. So <code>slice(0, 2)</code> would return the
+elements at key 0 and 1.</p>
+<p>The returned <code>MutableMapInterface</code> will always be a proper subset of this
+<code>MutableMapInterface</code>.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Psl\Collection\int</td>
+                                <td>$start </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>\Psl\Collection\int</td>
+                                <td>$len </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>int $start - The starting key of this Vector to begin the returned
+<code>MutableMapInterface</code>.</p>
+                                                                                            <p>int $len   - The length of the returned <code>MutableMapInterface</code>.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tv&gt; - A <code>MutableMapInterface</code> that is a proper subset of the current
+<code>MutableMapInterface</code> starting at <code>$start</code> up to but not including the element <code>$start + $len</code>.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isEmpty" name="method_isEmpty" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isEmpty()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isEmpty() </pre>
+                <p><em>Is the CollectionInterface empty?</em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.CollectionInterface.html"><div class="path-wrapper">\Psl\Collection\CollectionInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_count" name="method_count" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">count()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">count() </pre>
+                <p><em>Get the number of items in the collection.</em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.CollectionInterface.html"><div class="path-wrapper">\Psl\Collection\CollectionInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_toArray" name="method_toArray" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">toArray()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">toArray() </pre>
+                <p><em>Get an array copy of the current collection.</em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.CollectionInterface.html"><div class="path-wrapper">\Psl\Collection\CollectionInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>array&lt;Tk, Tv&gt;</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_jsonSerialize" name="method_jsonSerialize" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">jsonSerialize()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">jsonSerialize() </pre>
+                <p><em>Get an array copy of the current collection.</em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.CollectionInterface.html"><div class="path-wrapper">\Psl\Collection\CollectionInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>array&lt;Tk, Tv&gt;</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_at" name="method_at" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">at()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">at(  <span class="argument">$k</span>) </pre>
+                <p><em>Returns the value at the specified key in the current collection.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$k </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.IndexAccessInterface.html"><div class="path-wrapper">\Psl\Collection\IndexAccessInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>Tk $k</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>Tv</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_contains" name="method_contains" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">contains()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">contains(  <span class="argument">$k</span>) </pre>
+                <p><em>Determines if the specified key is in the current collection.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$k </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.IndexAccessInterface.html"><div class="path-wrapper">\Psl\Collection\IndexAccessInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>Tk $k</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_get" name="method_get" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">get()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">get(  <span class="argument">$k</span>) </pre>
+                <p><em>Returns the value at the specified key in the current collection.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$k </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.IndexAccessInterface.html"><div class="path-wrapper">\Psl\Collection\IndexAccessInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>Tk $k</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>Tv|null</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_set" name="method_set" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">set()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">set(  <span class="argument">$k</span>,   <span class="argument">$v</span>) </pre>
+                <p><em>Stores a value into the current collection with the specified key,
+overwriting the previous value associated with the key.</em></p>
+                <p>If the key is not present, an exception is thrown. If you want to add
+a value even if a key is not present, use <code>add()</code>.</p>
+<p>It returns the current collection, meaning changes made to the current
+collection will be reflected in the returned collection.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$k </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$v </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>Tk $k - The key to which we will set the value.</p>
+                                                                                            <p>Tv $v - The value to set.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tv&gt; - Returns itself.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setAll" name="method_setAll" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setAll()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setAll(\Psl\Collection\iterable  <span class="argument">$iterable</span>) </pre>
+                <p><em>For every element in the provided `iterable`, stores a value into the
+current collection associated with each key, overwriting the previous value
+associated with the key.</em></p>
+                <p>If the key is not present, an exception is thrown. If you want to add
+a value even if a key is not present, use <code>addAll()</code>.</p>
+<p>It the current collection, meaning changes made to the current collection
+will be reflected in the returned collection.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Psl\Collection\iterable</td>
+                                <td>$iterable </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>iterable&lt;Tk, Tv&gt; $iterable - The <code>iterable</code> with the new values to set.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tv&gt; - Returns itself.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_remove" name="method_remove" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">remove()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">remove(  <span class="argument">$k</span>) </pre>
+                <p><em>Removes the specified key (and associated value) from the current
+collection.</em></p>
+                <p>If the key is not in the current collection, the current collection is
+unchanged.</p>
+<p>It the current collection, meaning changes made to the current collection
+will be reflected in the returned collection.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$k </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>Tk $k - The key to remove.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tv&gt; - Returns itself.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_clear" name="method_clear" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">clear()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">clear() </pre>
+                <p><em>Removes all items from the collection.</em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tv&gt;</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add" name="method_add" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add(  <span class="argument">$k</span>,   <span class="argument">$v</span>) </pre>
+                <p><em>Add a value to the collection and return the collection itself.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$k </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$v </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>Tk $k - The key to which we will add the value.</p>
+                                                                                            <p>Tv $v - The value to set.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tv&gt; - Returns itself.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addAll" name="method_addAll" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addAll()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addAll(\Psl\Collection\iterable  <span class="argument">$iterable</span>) </pre>
+                <p><em>For every element in the provided iterable, add the value into the current collection.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Psl\Collection\iterable</td>
+                                <td>$iterable </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Psl.Collection.MutableMapInterface.html"><div class="path-wrapper">\Psl\Collection\MutableMapInterface</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            psalm-param
+                        </th>
+                        <td>
+                                                                                            <p>iterable&lt;Tk, Tv&gt; $iterable - The <code>iterable</code> with the new values to add.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            psalm-return
+                        </th>
+                        <td>
+                                                                                            <p>MutableMapInterface&lt;Tk, Tv&gt; - Returns itself.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">MutableMapInterface.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Psl/Collection/MutableMapInterface.php.txt" class="language-php"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Psl.html">\Psl</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on December 28th, 2020 at 11:27.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
