@@ -6,6 +6,8 @@ namespace Psl\Internal;
 
 use Closure;
 
+use Psl\Exception\RuntimeException;
+use Safe\Exceptions\MiscException;
 use function array_merge;
 use function class_exists;
 use function defined;
@@ -90,6 +92,8 @@ final class Loader
         'Psl\\Fun\\after' => 'Psl/Fun/after.php',
         'Psl\\Fun\\identity' => 'Psl/Fun/identity.php',
         'Psl\\Fun\\lazy' => 'Psl/Fun/lazy.php',
+        'Psl\\Fun\\partial_left' => 'Psl/Fun/partial_left.php',
+        'Psl\\Fun\\partial_right' => 'Psl/Fun/partial_right.php',
         'Psl\\Fun\\pipe' => 'Psl/Fun/pipe.php',
         'Psl\\Fun\\rethrow' => 'Psl/Fun/rethrow.php',
         'Psl\\Fun\\tap' => 'Psl/Fun/tap.php',
@@ -838,6 +842,20 @@ final class Loader
             }
 
             self::load($file);
+            self::defineAsConst($function);
+        }
+    }
+
+    private static function defineAsConst(string $fqcn): void {
+
+        return;
+        [$error, $result] = box(static function() use ($fqcn): bool {
+            return (bool) \define($fqcn, $fqcn);
+        });
+
+        if ($error || !$result) {
+            // TODO
+            throw new RuntimeException($error ?? 'No result');
         }
     }
 
