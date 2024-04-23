@@ -124,6 +124,7 @@ final class Loader
         'Psl\\Iter\\is_empty' => 'Psl/Iter/is_empty.php',
         'Psl\\Iter\\last' => 'Psl/Iter/last.php',
         'Psl\\Iter\\last_key' => 'Psl/Iter/last_key.php',
+        'Psl\\Iter\\product' => 'Psl/Iter/product.php',
         'Psl\\Iter\\random' => 'Psl/Iter/random.php',
         'Psl\\Iter\\reduce' => 'Psl/Iter/reduce.php',
         'Psl\\Iter\\reduce_keys' => 'Psl/Iter/reduce_keys.php',
