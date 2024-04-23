@@ -29,15 +29,24 @@ use Psl\Math;
  * @see LowerBoundRangeInterface::getLowerBound()
  *
  * @psalm-immutable
+ *
+ * @template T of int|float
+ *
+ * @implements LowerBoundRangeInterface<T>
  */
 final readonly class FromRange implements LowerBoundRangeInterface
 {
-    private int $lowerBound;
+    /**
+     * @var T
+     */
+    private int|float $lowerBound;
 
     /**
      * @psalm-mutation-free
+     *
+     * @param T $lower_bound
      */
-    public function __construct(int $lower_bound)
+    public function __construct(int|float $lower_bound)
     {
         $this->lowerBound = $lower_bound;
     }
@@ -46,8 +55,10 @@ final readonly class FromRange implements LowerBoundRangeInterface
      * {@inheritDoc}
      *
      * @psalm-mutation-free
+     *
+     * @param T $value
      */
-    public function contains(int $value): bool
+    public function contains(int|float $value): bool
     {
         return $value >= $this->lowerBound;
     }
@@ -56,8 +67,12 @@ final readonly class FromRange implements LowerBoundRangeInterface
      * {@inheritDoc}
      *
      * @psalm-mutation-free
+     *
+     * @param T $lower_bound
+     *
+     * @return FromRange<T>
      */
-    public function withLowerBound(int $lower_bound): FromRange
+    public function withLowerBound(int|float $lower_bound): FromRange
     {
         return new FromRange(
             $lower_bound,
@@ -70,8 +85,12 @@ final readonly class FromRange implements LowerBoundRangeInterface
      * @throws Exception\InvalidRangeException If the lower bound is greater than the upper bound.
      *
      * @psalm-mutation-free
+     *
+     * @param T $upper_bound
+     *
+     * @return BetweenRange<T>
      */
-    public function withUpperBound(int $upper_bound, bool $upper_inclusive): BetweenRange
+    public function withUpperBound(int|float $upper_bound, bool $upper_inclusive): BetweenRange
     {
         return new BetweenRange(
             $this->lowerBound,
@@ -86,8 +105,12 @@ final readonly class FromRange implements LowerBoundRangeInterface
      * @throws Exception\InvalidRangeException If the lower bound is greater than the upper bound.
      *
      * @psalm-mutation-free
+     *
+     * @param T $upper_bound
+     *
+     * @return BetweenRange<T>
      */
-    public function withUpperBoundInclusive(int $upper_bound): BetweenRange
+    public function withUpperBoundInclusive(int|float $upper_bound): BetweenRange
     {
         return new BetweenRange(
             $this->lowerBound,
@@ -102,8 +125,12 @@ final readonly class FromRange implements LowerBoundRangeInterface
      * @throws Exception\InvalidRangeException If the lower bound is greater than the upper bound.
      *
      * @psalm-mutation-free
+     *
+     * @param T $upper_bound
+     *
+     * @return BetweenRange<T>
      */
-    public function withUpperBoundExclusive(int $upper_bound): BetweenRange
+    public function withUpperBoundExclusive(int|float $upper_bound): BetweenRange
     {
         return new BetweenRange(
             $this->lowerBound,
@@ -116,9 +143,12 @@ final readonly class FromRange implements LowerBoundRangeInterface
      * {@inheritDoc}
      *
      * @psalm-mutation-free
+     *
+     * @return FullRange<T>
      */
     public function withoutLowerBound(): FullRange
     {
+        /** @var FullRange<T> */
         return new FullRange();
     }
 
@@ -126,8 +156,10 @@ final readonly class FromRange implements LowerBoundRangeInterface
      * {@inheritDoc}
      *
      * @psalm-mutation-free
+     *
+     * @return T
      */
-    public function getLowerBound(): int
+    public function getLowerBound(): int|float
     {
         return $this->lowerBound;
     }
@@ -135,7 +167,7 @@ final readonly class FromRange implements LowerBoundRangeInterface
     /**
      * {@inheritDoc}
      *
-     * @return Iter\Iterator<int, int>
+     * @return Iter\Iterator<int<0, max>, T>
      *
      * @psalm-mutation-free
      *
@@ -144,13 +176,19 @@ final readonly class FromRange implements LowerBoundRangeInterface
     public function getIterator(): Iter\Iterator
     {
         $bound = $this->lowerBound;
+        $isInt = is_int($this->lowerBound);
 
-        return Iter\Iterator::from(static function () use ($bound): Generator {
+        /** @var Iter\Iterator<int<0, max>, T> */
+        return Iter\Iterator::from(static function () use ($bound, $isInt): Generator {
             $value = $bound;
             while (true) {
                 yield $value;
 
-                if ($value === Math\INT64_MAX) {
+                if ($isInt && $value === Math\INT64_MAX) {
+                    throw Exception\OverflowException::whileIterating($bound);
+                }
+
+                if (!$isInt && $value === Math\FLOAT64_MAX) {
                     throw Exception\OverflowException::whileIterating($bound);
                 }
 

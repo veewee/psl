@@ -33,7 +33,7 @@ use Psl\Str\Exception;
  * Str\range($string, Range\between(7, 5, true)); // 'World'
  * ```
  *
- * @param RangeInterface $range
+ * @param RangeInterface<int> $range
  *
  * @throws Exception\OutOfBoundsException If the $offset is out-of-bounds.
  * @throws Exception\InvalidArgumentException If $string is not made of grapheme clusters.
@@ -48,7 +48,7 @@ function range(string $string, RangeInterface $range): string
         /** @var int<0, max> $offset */
         $offset = $range->getLowerBound();
     }
-    
+
     if ($range instanceof UpperBoundRangeInterface) {
         /** @var int<0, max> $length */
         $length = $range->getUpperBound() - $offset;

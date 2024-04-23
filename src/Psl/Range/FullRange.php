@@ -12,17 +12,23 @@ namespace Psl\Range;
  * @see RangeInterface::contains()
  *
  * @psalm-immutable
+ *
+ * @template T of int|float
+ *
+ * @implements RangeInterface<T>
  */
 final class FullRange implements RangeInterface
 {
     /**
      * This function always returns true.
      *
+     * @psalm-mutation-free
+     *
      * @return true
      *
-     * @psalm-mutation-free
+     * @param T $value
      */
-    public function contains(int $value): bool
+    public function contains(int|float $value): bool
     {
         return true;
     }
@@ -31,8 +37,12 @@ final class FullRange implements RangeInterface
      * {@inheritDoc}
      *
      * @psalm-mutation-free
+     *
+     * @param T $lower_bound
+     *
+     * @return FromRange<T>
      */
-    public function withLowerBound(int $lower_bound): FromRange
+    public function withLowerBound(int|float $lower_bound): FromRange
     {
         return new FromRange(
             $lower_bound,
@@ -43,8 +53,12 @@ final class FullRange implements RangeInterface
      * {@inheritDoc}
      *
      * @psalm-mutation-free
+     *
+     * @param T $upper_bound
+     *
+     * @return ToRange<T>
      */
-    public function withUpperBound(int $upper_bound, bool $upper_inclusive): ToRange
+    public function withUpperBound(int|float $upper_bound, bool $upper_inclusive): ToRange
     {
         return new ToRange($upper_bound, $upper_inclusive);
     }
@@ -53,8 +67,12 @@ final class FullRange implements RangeInterface
      * {@inheritDoc}
      *
      * @psalm-mutation-free
+     *
+     * @param T $upper_bound
+     *
+     * @return ToRange<T>
      */
-    public function withUpperBoundInclusive(int $upper_bound): ToRange
+    public function withUpperBoundInclusive(int|float $upper_bound): ToRange
     {
         return new ToRange($upper_bound, true);
     }
@@ -63,8 +81,12 @@ final class FullRange implements RangeInterface
      * {@inheritDoc}
      *
      * @psalm-mutation-free
+     *
+     * @param T $upper_bound
+     *
+     * @return ToRange<T>
      */
-    public function withUpperBoundExclusive(int $upper_bound): ToRange
+    public function withUpperBoundExclusive(int|float $upper_bound): ToRange
     {
         return new ToRange($upper_bound, false);
     }

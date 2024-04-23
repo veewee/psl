@@ -6,8 +6,14 @@ namespace Psl\Range;
 
 /**
  * @psalm-mutation-free
+ *
+ * @template T of int|float
+ *
+ * @param T $upper_bound
+ *
+ * @return ToRange<T>
  */
-function to(int $upper_bound, bool $inclusive = false): ToRange
+function to(int|float $upper_bound, bool $inclusive = false): ToRange
 {
     return new ToRange($upper_bound, $inclusive);
 }
