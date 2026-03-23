@@ -126,6 +126,7 @@ const CATEGORY_DISPLAY_NAMES = [
     'terminal' => 'Terminal',
     'security' => 'Security',
     'system' => 'System',
+    'tools' => 'Tools',
     'other' => 'Other',
 ];
 
