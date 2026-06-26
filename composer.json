@@ -79,6 +79,7 @@
         "php-standard-library/password": "self.version",
         "php-standard-library/process": "self.version",
         "php-standard-library/promise": "self.version",
+        "php-standard-library/psr-7": "self.version",
         "php-standard-library/pseudo-random": "self.version",
         "php-standard-library/punycode": "self.version",
         "php-standard-library/random-sequence": "self.version",
