@@ -85,6 +85,7 @@ const SLUG_TO_PACKAGE = [
     'math' => 'php-standard-library/math',
     'mime' => 'php-standard-library/mime',
     'message' => 'php-standard-library/message',
+    'psr-7' => 'php-standard-library/psr-7',
     'network' => 'php-standard-library/network',
     'observer' => 'php-standard-library/observer',
     'option' => 'php-standard-library/option',

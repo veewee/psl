@@ -4,6 +4,7 @@
 
 ### features
 
+* feat(psr-7): add the `psr-7` component. It provides a PSR-7 `Stream` and a PSR-17 `StreamFactory` built on `Psl\IO`, plus `StreamReadHandle` for reading a PSR-7 stream as a `Psl\IO\ReadHandleInterface`.
 * feat(type): add `numeric` type - [#793](https://github.com/php-standard-library/php-standard-library/pull/793) by @gsteel
 
 ## 6.2.1
