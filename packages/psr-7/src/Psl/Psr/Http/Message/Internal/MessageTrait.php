@@ -12,6 +12,7 @@ use Psr\Http\Message\UriInterface;
 use function implode;
 use function is_array;
 use function preg_match;
+use function strtolower;
 use function trim;
 
 /**
@@ -46,8 +47,13 @@ trait MessageTrait
     public function getHeaders(): array
     {
         $result = [];
+        $canonical = [];
         foreach ($this->fieldMap->toArray() as [$name, $value]) {
-            $result[$name][] = $value;
+            $lower = strtolower($name);
+            if (!isset($canonical[$lower])) {
+                $canonical[$lower] = $name;
+            }
+            $result[$canonical[$lower]][] = $value;
         }
 
         return $result;

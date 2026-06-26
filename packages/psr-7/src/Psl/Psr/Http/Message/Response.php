@@ -15,14 +15,12 @@ final class Response implements ResponseInterface
 {
     use MessageTrait;
 
-    private int $statusCode;
-
-    private string $reasonPhrase;
-
-    public function __construct(int $statusCode = 200, string $reasonPhrase = '', string $protocolVersion = '1.1')
-    {
+    public function __construct(
+        private int $statusCode = 200,
+        private string $reasonPhrase = '',
+        string $protocolVersion = '1.1',
+    ) {
         $this->assertValidStatusCode($statusCode);
-        $this->statusCode = $statusCode;
         $this->reasonPhrase = $reasonPhrase !== '' ? $reasonPhrase : Message\reason_phrase($statusCode);
         $this->protocolVersion = $protocolVersion;
         $this->fieldMap = FieldMap::default();

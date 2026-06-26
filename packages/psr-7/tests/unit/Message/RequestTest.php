@@ -12,6 +12,11 @@ use Psl\Psr\Http\Message\Stream;
 use Psl\Psr\Http\Message\Uri;
 use Psr\Http\Message\StreamInterface;
 
+use function array_filter;
+use function array_keys;
+use function array_values;
+use function strtolower;
+
 final class RequestTest extends TestCase
 {
     // -----------------------------------------------------------------------
@@ -267,6 +272,88 @@ final class RequestTest extends TestCase
 
         static::assertNotSame($req, $new);
         static::assertSame($stream, $new->getBody());
+    }
+
+    // -----------------------------------------------------------------------
+    // HTTP method validation (Fix 1)
+    // -----------------------------------------------------------------------
+
+    public function testConstructRejectsEmptyMethod(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        new Request('', Uri::fromString('http://example.com/'));
+    }
+
+    public function testConstructRejectsMethodWithSpace(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        new Request('GET POST', Uri::fromString('http://example.com/'));
+    }
+
+    public function testConstructRejectsMethodWithControlChar(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        new Request("G\nET", Uri::fromString('http://example.com/'));
+    }
+
+    public function testWithMethodRejectsEmptyMethod(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        $req = new Request('GET', Uri::fromString('http://example.com/'));
+        $req->withMethod('');
+    }
+
+    public function testWithMethodRejectsMethodWithSpace(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        $req = new Request('GET', Uri::fromString('http://example.com/'));
+        $req->withMethod('GET POST');
+    }
+
+    public function testWithMethodRejectsMethodWithControlChar(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        $req = new Request('GET', Uri::fromString('http://example.com/'));
+        $req->withMethod("G\nET");
+    }
+
+    public function testValidMethodsAreAccepted(): void
+    {
+        $req = new Request('GET', Uri::fromString('http://example.com/'));
+        static::assertSame('GET', $req->getMethod());
+
+        $new = $req->withMethod('POST');
+        static::assertSame('POST', $new->getMethod());
+
+        $new2 = $req->withMethod('PATCH');
+        static::assertSame('PATCH', $new2->getMethod());
+    }
+
+    // -----------------------------------------------------------------------
+    // getHeaders casing grouping (Fix 2)
+    // -----------------------------------------------------------------------
+
+    public function testGetHeadersGroupsByFirstSeenCasing(): void
+    {
+        $req = new Request('GET', Uri::fromString('http://example.com/'));
+        $req = $req->withHeader('Content-Type', 'a');
+        $req = $req->withAddedHeader('content-type', 'b');
+
+        $headers = $req->getHeaders();
+
+        // Must have exactly one key for this header (case-insensitive)
+        $contentTypeKeys = array_filter(array_keys($headers), static fn(string $k): bool => strtolower($k) === 'content-type');
+        static::assertCount(1, $contentTypeKeys, 'getHeaders() must group case-insensitive header names under one key');
+
+        $key = array_values($contentTypeKeys)[0];
+        static::assertSame('Content-Type', $key, 'First-seen casing must be preserved as the map key');
+        static::assertSame(['a', 'b'], $headers[$key], 'Both values must appear under the single key');
     }
 
     // -----------------------------------------------------------------------
