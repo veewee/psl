@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Psl\Psr\Http\Message;
 
 use Throwable;
+use Psl\IO;
 use Psl\IO\CloseHandleInterface;
 use Psl\IO\HandleInterface;
 use Psl\IO\ReadHandleInterface;
@@ -18,7 +19,6 @@ use const SEEK_END;
 use const SEEK_SET;
 
 use function strlen;
-use Psl\IO;
 
 final class Stream implements StreamInterface
 {

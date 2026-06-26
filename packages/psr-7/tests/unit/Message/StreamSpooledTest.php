@@ -30,5 +30,8 @@ final class StreamSpooledTest extends TestCase
 
         static::assertSame(strlen($payload), $stream->getSize());
         static::assertSame($payload, $stream->getContents());
+        static::assertTrue($stream->isSeekable());
+        $stream->rewind();
+        static::assertSame(0, $stream->tell());
     }
 }
