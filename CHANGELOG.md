@@ -4,6 +4,7 @@
 
 ### features
 
+* feat(psr-7): add the `psr-7` component, a client-side PSR-7 / PSR-17 implementation built on PSL. It provides the message types `Uri`, `Request`, and `Response`, a `Stream` over any `Psl\IO` handle (plus a reverse `StreamReadHandle`), and the PSR-17 `UriFactory`, `RequestFactory`, `ResponseFactory`, and `StreamFactory`. Headers reuse `Psl\HTTP\Message\FieldMap`, URIs reuse `Psl\URI`, and bodies stay on `Psl\IO`. Server-side types (`ServerRequest`, `UploadedFile`) are intentionally out of scope.
 * feat(type): add `numeric` type - [#793](https://github.com/php-standard-library/php-standard-library/pull/793) by @gsteel
 
 ## 6.2.1

@@ -65,6 +65,7 @@ function package_namespace_map(): array
         'Password' => 'password',
         'Process' => 'process',
         'Promise' => 'promise',
+        'Psr\\Http' => 'psr-7',
         'PseudoRandom' => 'pseudo-random',
         'Punycode' => 'punycode',
         'RandomSequence' => 'random-sequence',
