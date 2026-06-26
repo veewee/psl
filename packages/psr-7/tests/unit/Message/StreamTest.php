@@ -95,4 +95,13 @@ final class StreamTest extends TestCase
 
         static::assertTrue($stream->eof());
     }
+
+    // Fix #4: negative absolute seek position must throw RuntimeException
+    public function testSeekToNegativePositionThrowsRuntimeException(): void
+    {
+        $stream = Stream::fromHandle(new MemoryHandle('hello'), 5);
+
+        $this->expectException(RuntimeException::class);
+        $stream->seek(-100, SEEK_CUR);
+    }
 }

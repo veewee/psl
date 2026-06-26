@@ -119,6 +119,10 @@ final class Stream implements StreamInterface
             default => throw new RuntimeException('Invalid seek whence.'),
         };
 
+        if ($target < 0) {
+            throw new RuntimeException('Cannot seek to a negative position.');
+        }
+
         $handle->seek($target);
     }
 
