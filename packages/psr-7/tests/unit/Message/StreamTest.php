@@ -7,6 +7,10 @@ namespace Psl\Psr\Http\Tests\Unit\Message;
 use Psl\IO\MemoryHandle;
 use Psl\Psr\Http\Message\Stream;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
+
+use const SEEK_CUR;
+use const SEEK_END;
 
 final class StreamTest extends TestCase
 {
@@ -42,5 +46,53 @@ final class StreamTest extends TestCase
     public function testGetSizeNullWhenUnknown(): void
     {
         static::assertNull(Stream::fromHandle(new MemoryHandle('x'))->getSize());
+    }
+
+    public function testSeekAndTellAbsoluteAndCurrent(): void
+    {
+        $stream = Stream::fromHandle(new MemoryHandle('0123456789'), 10);
+
+        static::assertTrue($stream->isSeekable());
+        $stream->seek(4);
+        static::assertSame(4, $stream->tell());
+        $stream->seek(2, SEEK_CUR);
+        static::assertSame('6789', $stream->getContents());
+    }
+
+    public function testSeekEndRequiresKnownSize(): void
+    {
+        $known = Stream::fromHandle(new MemoryHandle('0123456789'), 10);
+        $known->seek(-2, SEEK_END);
+        static::assertSame('89', $known->getContents());
+
+        $unknown = Stream::fromHandle(new MemoryHandle('0123456789'));
+        $this->expectException(RuntimeException::class);
+        $unknown->seek(-2, SEEK_END);
+    }
+
+    public function testToStringRewindsWhenSeekable(): void
+    {
+        $stream = Stream::fromHandle(new MemoryHandle('full body'), 9);
+        $stream->read(4);
+
+        static::assertSame('full body', (string) $stream);
+    }
+
+    public function testDetachReturnsNullAndDisablesStream(): void
+    {
+        $stream = Stream::fromHandle(new MemoryHandle('x'), 1);
+
+        static::assertNull($stream->detach());
+        static::assertFalse($stream->isReadable());
+        static::assertNull($stream->getMetadata());
+        static::assertSame([], $stream->getMetadata('size') ?? []);
+    }
+
+    public function testEofReturnsTrueOnDetachedStream(): void
+    {
+        $stream = Stream::fromHandle(new MemoryHandle('x'), 1);
+        $stream->detach();
+
+        static::assertTrue($stream->eof());
     }
 }

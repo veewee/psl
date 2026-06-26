@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Psl\Psr\Http\Message;
 
+use Throwable;
+use Psl\IO\CloseHandleInterface;
 use Psl\IO\HandleInterface;
 use Psl\IO\ReadHandleInterface;
 use Psl\IO\SeekHandleInterface;
@@ -11,6 +13,8 @@ use Psl\IO\WriteHandleInterface;
 use Psr\Http\Message\StreamInterface;
 use RuntimeException;
 
+use const SEEK_CUR;
+use const SEEK_END;
 use const SEEK_SET;
 
 use function strlen;
@@ -76,7 +80,11 @@ final class Stream implements StreamInterface
 
     public function eof(): bool
     {
-        return $this->readable()->reachedEndOfDataSource();
+        if ($this->detached || !$this->handle instanceof ReadHandleInterface) {
+            return true;
+        }
+
+        return $this->handle->reachedEndOfDataSource();
     }
 
     public function getSize(): ?int
@@ -84,13 +92,85 @@ final class Stream implements StreamInterface
         return $this->size;
     }
 
-    public function __toString(): string { throw new RuntimeException('not implemented'); }
-    public function close(): void { throw new RuntimeException('not implemented'); }
-    public function detach() { throw new RuntimeException('not implemented'); }
-    public function tell(): int { throw new RuntimeException('not implemented'); }
-    public function seek(int $offset, int $whence = SEEK_SET): void { throw new RuntimeException('not implemented'); }
-    public function rewind(): void { throw new RuntimeException('not implemented'); }
-    public function getMetadata(?string $key = null) { throw new RuntimeException('not implemented'); }
+    public function tell(): int
+    {
+        return $this->seekable()->tell();
+    }
+
+    public function seek(int $offset, int $whence = SEEK_SET): void
+    {
+        $handle = $this->seekable();
+
+        $target = match ($whence) {
+            SEEK_SET => $offset,
+            SEEK_CUR => $handle->tell() + $offset,
+            SEEK_END => $this->sizeForEnd() + $offset,
+            default => throw new RuntimeException('Invalid seek whence.'),
+        };
+
+        $handle->seek($target);
+    }
+
+    public function rewind(): void
+    {
+        $this->seek(0);
+    }
+
+    public function __toString(): string
+    {
+        try {
+            if ($this->isSeekable()) {
+                $this->rewind();
+            }
+
+            return $this->getContents();
+        } catch (Throwable) {
+            return '';
+        }
+    }
+
+    public function close(): void
+    {
+        if (!$this->detached && $this->handle instanceof CloseHandleInterface) {
+            $this->handle->close();
+        }
+
+        $this->detached = true;
+    }
+
+    public function detach(): mixed
+    {
+        $this->detached = true;
+
+        return null;
+    }
+
+    public function getMetadata(?string $key = null): mixed
+    {
+        if ($this->detached) {
+            return null;
+        }
+
+        return $key === null ? [] : null;
+    }
+
+    private function seekable(): SeekHandleInterface
+    {
+        if ($this->detached || !$this->handle instanceof SeekHandleInterface) {
+            throw new RuntimeException('Stream is not seekable.');
+        }
+
+        return $this->handle;
+    }
+
+    private function sizeForEnd(): int
+    {
+        if ($this->size === null) {
+            throw new RuntimeException('Cannot SEEK_END: stream size is unknown.');
+        }
+
+        return $this->size;
+    }
 
     private function readable(): ReadHandleInterface
     {
