@@ -165,6 +165,7 @@
             "Psl\\Password\\": "packages/password/src/Psl/Password/",
             "Psl\\Process\\": "packages/process/src/Psl/Process/",
             "Psl\\Promise\\": "packages/promise/src/Psl/Promise/",
+            "Psl\\Psr\\Http\\": "packages/psr-7/src/Psl/Psr/Http/",
             "Psl\\PseudoRandom\\": "packages/pseudo-random/src/Psl/PseudoRandom/",
             "Psl\\Punycode\\": "packages/punycode/src/Psl/Punycode/",
             "Psl\\RandomSequence\\": "packages/random-sequence/src/Psl/RandomSequence/",
@@ -250,6 +251,7 @@
             "packages/uri/src/Psl/bootstrap.php",
             "packages/url/src/Psl/bootstrap.php",
             "packages/iri/src/Psl/bootstrap.php",
+            "packages/psr-7/src/Psl/bootstrap.php",
             "packages/vec/src/Psl/bootstrap.php"
         ]
     },
@@ -326,6 +328,7 @@
             "Psl\\Password\\Tests\\Unit\\": "packages/password/tests/unit/",
             "Psl\\Process\\Tests\\Unit\\": "packages/process/tests/unit/",
             "Psl\\Promise\\Tests\\Unit\\": "packages/promise/tests/unit/",
+            "Psl\\Psr\\Http\\Tests\\Unit\\": "packages/psr-7/tests/unit/",
             "Psl\\PseudoRandom\\Tests\\Unit\\": "packages/pseudo-random/tests/unit/",
             "Psl\\Punycode\\Tests\\Unit\\": "packages/punycode/tests/unit/",
             "Psl\\RandomSequence\\Tests\\Unit\\": "packages/random-sequence/tests/unit/",
