@@ -18,6 +18,7 @@ use const SEEK_END;
 use const SEEK_SET;
 
 use function strlen;
+use Psl\IO;
 
 final class Stream implements StreamInterface
 {
@@ -31,6 +32,16 @@ final class Stream implements StreamInterface
     public static function fromHandle(HandleInterface $handle, ?int $size = null): self
     {
         return new self($handle, $size);
+    }
+
+    public static function spooled(ReadHandleInterface $source, int $threshold = 2_097_152): self
+    {
+        $spool = IO\spool($threshold);
+        $spool->writeAll($source->readAll());
+        $size = $spool->tell();
+        $spool->seek(0);
+
+        return new self($spool, $size);
     }
 
     public function isReadable(): bool
