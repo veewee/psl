@@ -35,7 +35,7 @@ final class StreamFactory implements StreamFactoryInterface
     public function createStreamFromFile(string $filename, string $mode = 'r'): StreamInterface
     {
         // PSR-17 requires InvalidArgumentException for a malformed mode.
-        if ($filename === '' || !preg_match('/^[rwaxc]\+?[bt]?\+?$/', $mode)) {
+        if ($filename === '' || !preg_match('/^[rwaxc](?:\+[bt]?|[bt]\+?)?$/', $mode)) {
             throw new InvalidArgumentException("Invalid file mode '{$mode}' or empty filename.");
         }
 

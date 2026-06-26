@@ -25,7 +25,7 @@ final class Stream implements StreamInterface
     private bool $detached = false;
 
     private function __construct(
-        private HandleInterface $handle,
+        private readonly HandleInterface $handle,
         private ?int $size,
     ) {}
 

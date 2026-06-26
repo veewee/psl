@@ -34,15 +34,17 @@ final class StreamFactoryTest extends TestCase
         $path = Filesystem\create_temporary_file();
         File\write($path, 'file contents');
 
-        $stream = (new StreamFactory())->createStreamFromFile($path);
+        try {
+            $stream = (new StreamFactory())->createStreamFromFile($path);
 
-        static::assertSame(13, $stream->getSize());
-        static::assertSame('file contents', $stream->getContents());
-        static::assertTrue($stream->isReadable());
-        static::assertTrue($stream->isSeekable());   // files on disk are seekable
-        static::assertFalse($stream->isWritable());   // 'r' mode
-
-        Filesystem\delete_file($path);
+            static::assertSame(13, $stream->getSize());
+            static::assertSame('file contents', $stream->getContents());
+            static::assertTrue($stream->isReadable());
+            static::assertTrue($stream->isSeekable());   // files on disk are seekable
+            static::assertFalse($stream->isWritable());   // 'r' mode
+        } finally {
+            Filesystem\delete_file($path);
+        }
     }
 
     public function testCreateStreamFromSeekableResourceIsSeekable(): void

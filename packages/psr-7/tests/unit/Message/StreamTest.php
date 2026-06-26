@@ -85,7 +85,7 @@ final class StreamTest extends TestCase
         static::assertNull($stream->detach());
         static::assertFalse($stream->isReadable());
         static::assertNull($stream->getMetadata());
-        static::assertSame([], $stream->getMetadata('size') ?? []);
+        static::assertNull($stream->getMetadata('size'));
     }
 
     public function testEofReturnsTrueOnDetachedStream(): void
